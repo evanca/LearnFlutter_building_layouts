@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
         children: [
           Expanded(
             child: Column( // Putting Column inside an Expanded widget stretches the column to use all remaining free space in the row
-              crossAxisAlignment: CrossAxisAlignment.start, // Setting the crossAxisAlignment property to CrossAxisAlignment.start positions the column to the beginning of the row
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // Setting the crossAxisAlignment property to CrossAxisAlignment.start positions the column to the beginning of the row
               children: [
                 Container( // Putting the first row of text inside a Container enables adding padding
                   padding: const EdgeInsets.only(bottom: 8.0),
@@ -36,6 +37,42 @@ class MyApp extends StatelessWidget {
             color: Colors.red[500],
           ),
           Text('41'),
+        ],
+      ),
+    );
+
+    Column buildButtonColumn(IconData icon, String label) { // Since the code for building each row would be almost identical, it’s most efficient to create a nested function, such as buildButtonColumn(), which takes an Icon and Text, and returns a column with its widgets painted in the primary color
+      Color color = Theme
+          .of(context)
+          .primaryColor;
+
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: color),
+          Container(
+            margin: const EdgeInsets.only(top: 8.0),
+            child: Text(
+              label,
+              style: TextStyle(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w400,
+                color: color,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+
+    Widget buttonSection = Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Align the columns along the main axis using MainAxisAlignment.spaceEvenly to arrange the free space evenly before, between, and after each column
+        children: [
+          buildButtonColumn(Icons.call, 'CALL'), // Build the row containing these columns by calling the function and passing the icon and text specific to that column
+          buildButtonColumn(Icons.near_me, 'ROUTE'),
+          buildButtonColumn(Icons.share, 'SHARE'),
         ],
       ),
     );
