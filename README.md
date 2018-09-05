@@ -1,8 +1,11 @@
-# building_layouts_ivanna
+# Building Layouts in Flutter
 
-Building Layouts in Flutter
+## What you’ll learn:
 
-## Getting Started
+- How Flutter’s layout mechanism works.
+- How to lay out widgets vertically and horizontally.
+- How to build a Flutter layout.
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+![image](https://raw.githubusercontent.com/... .jpg)
+
+© https://flutter.io/tutorials/layout/
